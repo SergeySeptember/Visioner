@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.buttonAdd = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -42,15 +42,14 @@
             this.listBox1.Size = new System.Drawing.Size(403, 251);
             this.listBox1.TabIndex = 0;
             // 
-            // buttonAdd
+            // button1
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(442, 32);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(75, 23);
-            this.buttonAdd.TabIndex = 1;
-            this.buttonAdd.Text = "Добавить";
-            this.buttonAdd.UseVisualStyleBackColor = true;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            this.button1.Location = new System.Drawing.Point(442, 32);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
@@ -77,7 +76,7 @@
             this.ClientSize = new System.Drawing.Size(539, 286);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.buttonAdd);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.listBox1);
             this.Name = "EditCasesForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -89,7 +88,7 @@
         #endregion
 
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
     }
