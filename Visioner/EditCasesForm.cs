@@ -21,5 +21,9 @@ namespace Visioner
             listBox1.DataSource = _list;
         }
 
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
