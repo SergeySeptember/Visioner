@@ -8,19 +8,25 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using Visioner.Service;
 
 namespace Visioner
 {
     public partial class Form1 : Form
     {
         private Random _random = new Random();
-        private List<string> cases = new List<string>() { "Kek", "Lol", "Cheburek" };
+        private BindingList<string> _cases;
+        private readonly string path = $"{Environment.CurrentDirectory}\\Cases.json";
+        private FileIOService _fileIOService;
 
         public Form1()
         {
             InitializeComponent();
+            _cases = new BindingList<string>();
+            _fileIOService = new FileIOService(path);
+            LoadCases();
+
         }
-         
 
         private void UpdateProgressBar(int i)
         {
@@ -56,16 +62,10 @@ namespace Visioner
 
             });
             textBox1.Text = ("");
-            int rnd = _random.Next(cases.Count);
-            MessageBox.Show(cases[rnd].ToString());
+            int rnd = _random.Next(_cases.Count);
+            MessageBox.Show(_cases[rnd].ToString());
 
             bPredict.Enabled = true;
-        }
-        private void btnEditList_Click(object sender, EventArgs e)
-        {
-            
-            EditCasesForm secondForm = new EditCasesForm(cases);
-            secondForm.Show();
         }
 
 
@@ -74,8 +74,32 @@ namespace Visioner
             MessageBox.Show("Хули тут непонятного? Тыкаешь на кнопку, прога предсказывает твоё будущее. Не злоупотреблять, отвалятся яйца. Если ты девочка, отвалятся твои девчачьи яйца!");
         }
 
-        
+        private void LoadCases()
+        {
+            try
+            {
+                _cases = _fileIOService.LoadData();
+                listBox1.DataSource = _cases;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                Close();
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string newCases = textBox2.Text;
+            _cases.Add(newCases);
+            _fileIOService.SaveData(_cases);
+            textBox2.Clear();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            int indexOfListBox = listBox1.SelectedIndex;
+            _cases.RemoveAt(indexOfListBox);
+        }
     }
-
-
 }
