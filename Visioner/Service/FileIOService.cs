@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Visioner;
 using Newtonsoft.Json;
 
-namespace Visioner.Service
+namespace Visioner.IO
 {
     class FileIOService
     {
@@ -25,7 +19,12 @@ namespace Visioner.Service
             if (!fileExists)
             {
                 File.CreateText(_filePath).Dispose();
-                return new BindingList<string>();
+                return new BindingList<string> 
+                { 
+                  "Придёт повестка с военкомата", 
+                  "Больше не будет нравиться вкус шаурмы",
+                  "Найдёшь сотку в кармане"
+                };
             }
             using (var reader = File.OpenText(_filePath))
             {
@@ -43,6 +42,5 @@ namespace Visioner.Service
             }
 
         }
-        
     }
 }
