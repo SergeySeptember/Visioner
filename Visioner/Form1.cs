@@ -23,6 +23,7 @@ namespace Visioner
             _predictions = new BindingList<string>();
             _fileIOService = new FileIOService(path);
             LoadCases();
+            _fileIOService.SaveData(_predictions);
         }
 
         private void UpdateProgressBar(int i)

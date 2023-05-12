@@ -1,0 +1,8 @@
+            this.buttonAdd.Text = TranslateRusEng.Russian["Add"];
+            this.buttonDelete.Text = TranslateRusEng.Russian["Delete"];
+            this.tabPage1.Text = TranslateRusEng.Russian["Main Tab"];
+            this.bPredict.Text = TranslateRusEng.Russian["Predict"];
+            this.tabPage2.Text = TranslateRusEng.Russian["Edit"];
+            this.languageToolStripMenuItem.Text = TranslateRusEng.Russian["Language"];
+            this.helpToolStripMenuItem.Text = TranslateRusEng.Russian["Help"];
+            this.textBox1.Text = TranslateRusEng.Russian["Initial Text"];
